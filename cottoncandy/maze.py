@@ -37,6 +37,16 @@ def find(grid, ch):
                 return x, y
 
 
+# 솜사탕이면 길로 바꾸고 True. 아니면 False. 테두리는 못 뚫음
+def dig(grid, x, y):
+    if x <= 0 or y <= 0 or y >= len(grid) - 1 or x >= len(grid[0]) - 1:
+        return False
+    if grid[y][x] == "#":
+        grid[y][x] = "."
+        return True
+    return False
+
+
 # 갈 수 있는 칸인지 (지도 밖이거나 #이면 못 감)
 def can_walk(grid, x, y):
     if x < 0 or y < 0 or y >= len(grid) or x >= len(grid[0]):
